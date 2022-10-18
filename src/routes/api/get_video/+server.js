@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { json } from '@sveltejs/kit';
 
-const url = 'http://backend:5000/api/get_video/';
+const url = import.meta.env.VITE_PUBLIC_IP + '/api/get_video/';
 async function apiBackend() {
 	console.log('fetch_info');
 	let res;

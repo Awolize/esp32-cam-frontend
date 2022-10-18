@@ -1,9 +1,10 @@
 // @ts-nocheck
 import { json } from '@sveltejs/kit';
 
-const url = 'http://backend:5000/api/new_video/';
+const url = import.meta.env.VITE_PUBLIC_IP + '/api/new_video/';
 async function apiBackend() {
 	console.log('new_video');
+	console.log(url);
 	let res = await fetch(url);
 	console.log('Reponse status:' + res.status);
 }

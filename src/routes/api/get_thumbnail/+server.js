@@ -1,5 +1,5 @@
 // @ts-nocheck
-const url = 'http://backend:5000/api/get_thumbnail/';
+const url = import.meta.env.VITE_PUBLIC_IP + '/api/get_thumbnail/';
 async function apiBackend() {
 	console.log('fetch_info');
 	let res;
@@ -16,6 +16,5 @@ async function apiBackend() {
 /** @type {import('./$types').RequestHandler} */
 export async function GET(event) {
 	let content = await apiBackend();
-
 	return content;
 }

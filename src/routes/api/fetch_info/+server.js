@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { json } from '@sveltejs/kit';
 
-const url = 'http://backend:5000/api/fetch_info/';
+const url = import.meta.env.VITE_PUBLIC_IP + '/api/fetch_info/';
 async function apiBackend() {
 	console.log('fetch_info');
 	let res = await fetch(url);
@@ -15,8 +15,5 @@ async function apiBackend() {
 export async function GET(event) {
 	let content = await apiBackend();
 
-	return json({
-		// retrieve a specific header
-		content
-	});
+	return json(content);
 }
