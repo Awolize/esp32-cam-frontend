@@ -1,9 +1,5 @@
 <script>
 	// @ts-nocheck
-	import { onMount } from "svelte";
-
-	const src = '/videos/out.mp4';
-	const poster = '/videos/thumbnail.png';
 
 	// These values are bound to properties of the video
 	let time = 0;
@@ -61,7 +57,6 @@
         src={'api/get_video/'}
         poster={'api/get_thumbnail/'}
         crossOrigin="anonymous"
-        autoplay="true"
         on:mousemove={handleMove}
         on:touchmove|preventDefault={handleMove}
         on:mousedown={handleMousedown}
@@ -74,13 +69,13 @@
     </video>
 
 	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
-		<progress value={time / duration || 0} />
 
 		<div class="info">
 			<span class="time">{format(time)}</span>
 			<span>click to {paused ? 'play' : 'pause'} / drag to seek</span>
 			<span class="time">{format(duration)}</span>
 		</div>
+		<progress value={time / duration || 0} />
 	</div>
 </div>
 
@@ -91,7 +86,7 @@
 
 	.controls {
 		position: absolute;
-		top: 0;
+		bottom: 0;
 		width: 100%;
 		transition: opacity 1s;
 	}
