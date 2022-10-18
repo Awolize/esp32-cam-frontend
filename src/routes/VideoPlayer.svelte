@@ -20,7 +20,7 @@
 		// Make the controls visible, but fade out after
 		// 2.5 seconds of inactivity
 		clearTimeout(showControlsTimeout);
-		showControlsTimeout = setTimeout(() => (showControls = false), 2500);
+		showControlsTimeout = setTimeout(() => (showControls = false), 1000);
 		showControls = true;
 
 		if (!duration) return; // video not loaded yet
@@ -56,8 +56,7 @@
     
 </script>
 
-<div>
-
+<div class="my-3">
     <video
         src={'api/get_video/'}
         poster={'api/get_thumbnail/'}
@@ -79,7 +78,7 @@
 
 		<div class="info">
 			<span class="time">{format(time)}</span>
-			<span>click anywhere to {paused ? 'play' : 'pause'} / drag to seek</span>
+			<span>click to {paused ? 'play' : 'pause'} / drag to seek</span>
 			<span class="time">{format(duration)}</span>
 		</div>
 	</div>
